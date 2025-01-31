@@ -344,5 +344,282 @@ const InterestedIn = prompt(`What do you want to know about Szilveszter?
     // Challange
     console.log(`${szilveszter.firstName} has ${szilveszter.friends.length} friends, and his best friend is called ${szilveszter.friends[0]}`);
 
-*/
 
+
+
+
+const szilveszter = {
+    firstName: "Szilveszter",
+    lastName: "Nemeth",
+    birthYear: 1996,
+    friends: ["Michael", "Steven", "Peter"],
+    job:"cickány",
+    hasDriversLicense: true,
+     
+    //calcAge: function(birthYear) {
+     //   return 2025 - birthYear;
+   // }
+
+  // calcAge: function() {
+   // return 2025 - this.birthYear ;
+ //  }
+
+ calcAge: function() {
+    this.age = 2025 - this.birthYear ;
+    return this.age;
+   } ,
+
+   getSummary : function() {
+    return `${this.firstName} is a ${this.age}-years old ${this.job}, 
+        and he ${this.hasDriversLicense ? `has a driver's license` : `not have a driver's license`}`;
+   }
+ };
+
+ console.log(szilveszter.calcAge());
+ //console.log(szilveszter["calcAge"](1996));
+ console.log(szilveszter.age);
+ console.log(szilveszter.age);
+ console.log(szilveszter.age);
+
+ //Challange
+// console.log(`${szilveszter.firstName} is a ${szilveszter.age}-years old ${szilveszter.job}, 
+ //   and he ${szilveszter.hasDriversLicense ? `has a driver's license` : `not have a driver's license`}`);
+
+   console.log(szilveszter.getSummary());
+  
+
+   const mark = {
+    fullName : "Mark Miller" ,
+    mass: 78,
+    height: 1.69,
+    calcBMI : function() {
+       this.bmi = this.mass / (this.height*this.height)
+       return this.bmi ;
+
+    },
+    
+}
+
+
+
+const john = {
+    fullName :"John Smith" ,
+    mass: 92,
+    height: 1.95,
+    calcBMI : function() {
+        this.bmi = this.mass / (this.height*this.height)
+        return this.bmi ;
+ 
+     },
+}
+if(john.calcBMI > mark.calcBMI ) {
+ console.log(`${john.fullName}'s BMI (${john.calcBMI()}) is
+  higher than ${mark.fullName}'s (${mark.calcBMI()})!`)
+} else {
+    console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is
+  higher than ${john.fullName}'s (${john.calcBMI()})!`)
+};
+
+ 
+//LOOPS
+
+console.log("Lifting weigths repetition 1 !")
+
+// for loop keeps running while condition is true 
+for(let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weigths repetition ${rep}!`)
+   
+}
+
+
+
+
+const szilveszterArray = [
+    "Szilveszter",
+    "Nemeth",
+    2025-1996,
+    "programmer",
+    ["Michael", "Peter", "Steven"] 
+];
+
+const types = [] ;
+
+for(let i = 0;i < szilveszterArray.length ;i++) {
+    //Reading from aray
+    console.log(szilveszterArray[i]);
+    // Filling types array
+   // types[i] = typeof szilveszterArray[i]
+types.push(typeof szilveszterArray[i]);
+}
+
+console.log(types);
+
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for(let i = 0; i < years.length; i++) {
+   ages.push(2025 - years[i]);
+}
+
+console.log(ages);
+
+// contiune and break
+console.log("---ONLY STRINGS----");
+
+for(let i = 0;i < szilveszterArray.length ;i++) {
+    if(typeof szilveszterArray[i] !== "string") continue;
+
+    console.log(szilveszterArray[i], typeof szilveszterArray[i]);
+   
+}
+console.log("------BREAK WITH NUMBER----");
+
+for(let i = 0;i < szilveszterArray.length ;i++) {
+    if(typeof szilveszterArray[i] === "number") break;
+
+    console.log(szilveszterArray[i], typeof szilveszterArray[i]);
+   
+}
+
+
+
+const szilveszterArray = [
+    "Szilveszter",
+    "Nemeth",
+    2025-1996,
+    "programmer",
+    ["Michael", "Peter", "Steven"] 
+];
+
+for(let i = szilveszterArray.length - 1; i >= 0; i-- ) {
+    console.log(szilveszterArray[i])
+}
+
+for(let exercise = 1; exercise < 4; exercise++ ) {
+    console.log(`--------Starting exercise ${exercise}`);
+    for(let rep = 1; rep < 6; rep++) {
+        console.log(`Lifting weigth repetition ${rep}`);
+    }
+}
+
+
+
+// While Lopp 
+
+//for(let rep = 1; rep <= 10; rep++) {
+//    console.log(`Lifting weigths repetition ${rep}!`)
+   
+//}
+
+
+let rep = 1;
+while(rep <= 10) {
+    console.log(`Lifting weigths repetition ${rep}!`);
+   rep++;
+}
+
+let dice = Math.trunc(Math.random()* 6) +1;
+
+console.log(dice);
+
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+
+    dice = Math.trunc(Math.random()* 6) +1
+
+    if(dice === 6) console.log("Loop is about to end..");
+
+}
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+  }
+  
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+ const tips = [];
+ const totals = [];
+
+ for(let i = 0; i < bills.length; i++) {
+    tips[i] = calcTip(bills[i]);
+    totals[i] = calcTip(bills[i]) + bills[i];
+ }
+
+ console.log(tips);
+ console.log(totals);
+
+ //BONUS CHALLANGE 
+ 
+
+ function calcAverage(arr) {
+
+    let sum = 0;
+    
+    for(let i = 0; i < arr.length; i++ ) {
+        sum += arr[i] ;
+    }
+    return sum / arr.length ;
+ }
+
+ console.log(calcAverage(totals));
+ console.log(calcAverage(totals));
+
+ 
+
+
+
+ //Assignments for part 2
+ 
+ 
+ function describeCountry(country, population, capitalCity) {
+        return `${country} has ${population} million people and its capital city is ${capitalCity}`
+
+ }
+
+ const hungary = describeCountry("Hungary", 10, "Budapest");
+const austria = describeCountry("Austria", 20, "Vienna");
+ const finnland = describeCountry("Finnland", 6, "Helsinki");
+
+
+ console.log(hungary, austria, finnland);
+
+
+ 
+function percentageOfWorld1(population){
+    return population / 7900 * 100;
+}
+const idk = percentageOfWorld1(200)
+const kdi = percentageOfWorld1(200)
+const kda = percentageOfWorld1(50)
+console.log(idk);
+console.log(kdi);
+console.log(kda);
+
+const percentageOfWorld2 = function(population){
+    return population / 7900 * 100;
+}
+
+console.log(percentageOfWorld2(200));
+console.log(percentageOfWorld2(10));
+console.log(percentageOfWorld2(50));
+
+
+const percentageOfWorld3 = (population) => population / 7900 * 100;
+
+console.log(percentageOfWorld3(200));
+console.log(percentageOfWorld3(10));
+console.log(percentageOfWorld3(50));
+
+
+
+function describePopulation(country, population) {
+    return `${country} has ${population} million people, which is about ${percentageOfWorld1(population)}% of the world`;
+}
+
+console.log(describePopulation("China", 56));
+console.log(describePopulation("Hungary", 10));
+console.log(describePopulation("Austria", 2201));
+
+
+*/
